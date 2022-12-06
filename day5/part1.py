@@ -10,7 +10,6 @@ for line in lines:
         if line[i] != " ":
             boxes[i // 4].append(line[i])
 
-
 with open("data2.txt") as file:
     lines = [line.rstrip() for line in file]
 
@@ -21,4 +20,4 @@ for line in lines:
 
 for box in boxes:
     print(box[0], end ="")
-
+print()

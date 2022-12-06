@@ -15,8 +15,9 @@ with open("data2.txt") as file:
 
 for line in lines:
     move = re.findall(r'\d+', line)
-    for i in range(int(move[0])):
-        boxes[int(move[2])-1].insert(0, boxes[int(move[1])-1].pop(int(move[0])-1-i))
+    for i in range(1, int(move[0])+1):
+        boxes[int(move[2])-1].insert(0, boxes[int(move[1])-1].pop(int(move[0])-i))
 
 for box in boxes:
     print(box[0], end ="")
+print()
