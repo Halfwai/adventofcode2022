@@ -1,10 +1,8 @@
 with open("data.txt") as file:
-    lines = [line.rstrip() for line in file]
+    line = file.read()
 
-for i in range(13, len(lines[0])):
-    check = []
-    for j in range(0, 14):
-        check.append(lines[0][i - j])
+for i in range(13, len(line)):
+    check = line[i-14:i]
     if len(set(check)) == 14:
-        print(i+1)
+        print(i)
         break
