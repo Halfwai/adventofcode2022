@@ -5,8 +5,6 @@ with open("data.txt") as file:
 
 data = {}
 
-totalSize = 0
-
 sizeDict = {}
 
 def tallySize(key):
@@ -40,20 +38,24 @@ for i in range(0, len(lines)):
                 data[path].append(lines[startpoint])
                 startpoint += 1
 
+totalSize = 0
 
 for key in data:
     path = key
     total = tallySize(key)
     sizeDict[key] = total
+    if total <= 100000:
+        totalSize += total
 
 spaceNeeded = 30000000 - (70000000 - sizeDict["/"])
 
-smallestFilesize = 0
+smallestFileSize = 0
 for key in sizeDict:
     if sizeDict[key] >= spaceNeeded:
-        if smallestFilesize == 0:
-            smallestFilesize = sizeDict[key]
-        if sizeDict[key] < smallestFilesize:
-            smallestFilesize = sizeDict[key]
+        if smallestFileSize == 0:
+            smallestFileSize = sizeDict[key]
+        if sizeDict[key] < smallestFileSize:
+            smallestFileSize = sizeDict[key]
 
-print(smallestFilesize)
+print(f"Part 1: {totalSize}")
+print(f"Part 2: {smallestFileSize}")
