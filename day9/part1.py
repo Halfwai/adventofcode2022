@@ -1,5 +1,3 @@
-import math
-
 with open("data.txt") as file:
     lines = [line.rstrip() for line in file]
 
@@ -44,9 +42,6 @@ def distCheck(head, tail):
     else:
         return
 
-
-
-
 for line in lines:
     movement = int(line[2:])
     for step in range(movement):
@@ -64,13 +59,4 @@ for line in lines:
             distCheck(head, tail)
         visited[f"{tail['x']},{tail['y']}"] = True
 
-
 print(len(visited))
-
-
-
-
-
-
-
-# for line in lines:
